@@ -31,10 +31,9 @@ Teams tokens are also stored in a directory
 files/teams
  |- team1
  |   |- token.bin (raw binary)
- |   |- submitted.tokens (newline-deliminated tokens)
+ |   |- publickey.txt (their public key)
  |- team2
  |   |- token.bin (raw binary)
- |   |- submitted.tokens (newline-deliminated tokens)
  |- ~etc~
 ```        
 Build directory structure
@@ -65,19 +64,24 @@ That results in this directory structure:
 ```
 build/encryption
           |
+          |- team1.tar.gz (the compressed team1/ directory)
+          |- team1.tar.gz.gpg (the encrypted file)
           |- team1 (the team name)
+          |   | 
               |- question1_1(the name)
-              |     |- file1.txt (a file)
-              |     |- ~etc~
+              |     |- desc.txt (the description)
+              |     |- files.tar.gz (no password, compressed files)
               |- ~etc~ (the first **n**(3 here) files are not encrypted)
               |
               |- question4_4(the name)
+              |     |- desc.txt (the description)
               |     |- keys
               |     |    |- question1_1.key.enc (question1_1.key encrypted with the question one key. AES)
               |     |    |- question2_2.key.enc
               |     |    |- question3_3.key.enc 
               |     |- files.tar.gz.enc (files encrypted with SSS, needs 1(the question number minus **n**) key to open)
               |- question5_5(the name)
+              |     |- desc.txt (the description)
               |     |- keys
               |     |    |- question1_1.key.enc
               |     |    |- question2_2.key.enc
@@ -85,6 +89,7 @@ build/encryption
               |     |    |- question4_4.key.enc
               |     |- files.tar.gz.enc (SSS encryption, need 2(the question number minus **n**) keys to open)
               |- question6_6
+              |     |- desc.txt (the description)
               |     |- keys
               |     |    |- question1_1.key.enc
               |     |    |- question2_2.key.enc

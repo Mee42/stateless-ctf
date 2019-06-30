@@ -1,0 +1,5 @@
+
+echo "[FLAG FLAG]"
+cat $1
+echo "[FLAG FLAG]"
+

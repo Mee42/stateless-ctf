@@ -17,6 +17,8 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation("commons-codec","commons-codec","1.12")
+    implementation("com.codahale","shamir","0.7.0")
+    implementation("com.google.code.gson","gson","2.8.5")
 }
 
 val compileKotlin: KotlinCompile by tasks
