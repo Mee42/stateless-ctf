@@ -1,0 +1,2 @@
+cat dep.txt
+cat $1
