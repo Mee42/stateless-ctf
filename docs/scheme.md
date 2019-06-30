@@ -11,7 +11,7 @@ Question directory structure:
 
 There is one input variable, **n**, which is the number of questions
 to start unlocked.
-
+```
 files/questions
   |
   |
@@ -25,9 +25,9 @@ files/questions
   |     |    |- ~etc~
   |     |- key.bin (the keyfile - will be created if it does not exist)
   |- ~etc~     
-  
+```
 Teams tokens are also stored in a directory
-
+```
 files/teams
  |- team1
  |   |- token.bin (raw binary)
@@ -36,9 +36,9 @@ files/teams
  |   |- token.bin (raw binary)
  |   |- submitted.tokens (newline-deliminated tokens)
  |- ~etc~
-        
+```        
 Build directory structure
-
+```
 build/questions
           |
           |- team1 (the team name)
@@ -58,11 +58,11 @@ build/questions
           |   |- ~etc~ (more questions)
           |- ~etc~ (more teams)
   
-  
+```  
 After the question is built, it goes through an encryption phase
 
 That results in this directory structure:
-
+```
 build/encryption
           |
           |- team1 (the team name)
@@ -92,6 +92,6 @@ build/encryption
               |     |    |- question4_4.key.enc
               |     |    |- question5_5.key.enc
               |     |- files.tar.gz.enc (SSS encryption, need 6 - **n** keys to open)
-
+```
 The team1/ directory is compressed then encrypted with gpg public/private key encryption,
 and `team1.tar.gz.gpg` is uploaded to github.
